@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <title>A3-Home-Page</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+    <script src="A3_js.js" defer></script>
+    <link rel="stylesheet" href="A3_css.css">
+</head>
+
+<body id="home">
+    <header id="hf">
+        <h1>Home Page</h1>
+    </header>
+    <nav id="navi">
+        <ul>
+            <a href="home_page.html" id="navChange">
+                <li>Home</li>
+            </a>
+            <a href="stocks_page.html" id="navChange">
+                <li>Stocks</li>
+            </a>
+            <a href="dogs_page.html" id="navChange">
+                <li>Dogs</li>
+            </a>
+        </ul>
+    </nav>
+    <main>
+        <h1>Lets get going!</h1>
+        <div class="buttons">
+            <a href="stocks_page.html"><button class="stocksButton" role="button">Stocks</button></a>
+            <a href="dogs_page.html"><button class="dogsButton" role="button">Dogs</button></a>
+        </div>
+        <div class="quoteBox">
+            <div class="quote">
+                <h1>Quote of the Day</h1>
+                <p id="quote"></p>
+            </div>
+        </div>
+        <div id="audio-div">
+            <div id="content">
+                <h2>Try out our Audio Features!</h2>
+                <button id="start" onclick="startAudio()">Turn on Listening</button>
+                <button id="stop" onclick="stopAudio()">Turn off Listening</button>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

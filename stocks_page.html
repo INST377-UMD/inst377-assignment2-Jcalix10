@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <title>A3-Stocks-Page</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="A3_js.js" defer></script>
+    <link rel="stylesheet" href="A3_css.css">
+</head>
+<header id="hf">
+    <h1>Stocks</h1>
+</header>
+<nav id="navi">
+    <ul>
+        <a href="home_page.html" id="navChange">
+            <li>Home</li>
+        </a>
+        <a href="stocks_page.html" id="navChange">
+            <li>Stocks</li>
+        </a>
+        <a href="dogs_page.html" id="navChange">
+            <li>Dogs</li>
+        </a>
+    </ul>
+</nav>
+
+<body id="stocks">
+    <form name="stockTicker">
+        <input type="text" id="ticker" placeholder="AAPL" required>
+        <br>
+        <select id="days">
+            <option>30</option>
+            <option>60</option>
+            <option>90</option>
+        </select> <br>
+        <br>
+        <button type="submit" id="lookUp">Lookup</button>
+    </form>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+    <div class="tables">
+        <table id="tab">
+            <tr>
+                <th>Ticket</th>
+                <th>Comment Count</th>
+                <th>Sentiment</th>
+            </tr>
+        </table>
+        <ul id="topStocks">
+
+        </ul>
+    </div>
+    <div id="audio-div">
+        <div id="content">
+            <h2>Try out our Audio Features!</h2>
+            <button id="start" onclick="startAudio()">Turn on Listening</button>
+            <button id="stop" onclick="stopAudio()">Turn off Listening</button>
+        </div>
+    </div>
+</body>
+
+</html>
