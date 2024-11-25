@@ -5,7 +5,25 @@ function startAudio() {
     if (annyang) {
         // Let's define a command.
         const commands = {
-            'hello': () => { alert('Hello world!'); }
+            'hello': () => { alert('Hello world!'); },
+            'change the color to *color': (color) => {
+                document.body.style.backgroundColor = color;
+            },
+            'navigate to *page': (page) => {
+                const upperCasePage = page.toUpperCase();
+
+                if (upperCasePage === 'HOME PAGE') {
+                    window.location.href = 'home_page.html';
+                } else if (upperCasePage === 'STOCKS PAGE') {
+                    window.location.href = 'stocks_page.html';
+                } else if (upperCasePage === 'DOGS PAGE') {
+                    window.location.href = 'dogs_page.html';
+                } else {
+                    alert("No Page Found")
+                }
+            }
+
+
         };
 
         // Add our commands to annyang
@@ -44,34 +62,6 @@ function returnQuoteAPI() {
 }
 
 // STOCK PAGE JAVASCRIPYT
-
-// function stockLookup() {
-
-//     const ticker = document.getElementById('ticker').value;
-//     const days = document.getElementById('days').value;
-// }
-
-
-// const ctx = document.getElementById('myChart');
-
-// new Chart(ctx, {
-//   type: 'line',
-//   data: {
-//     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-//     datasets: [{
-//       label: '# of Votes',
-//       data: [12, 19, 3, 5, 2, 3],
-//       borderWidth: 1
-//     }]
-//   },
-//   options: {
-//     scales: {
-//       y: {
-//         beginAtZero: true
-//       }
-//     }
-//   }
-// });
 
 
 function fetchStockAPI() {

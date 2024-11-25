@@ -30,7 +30,6 @@ body {
     text-decoration: none;
     color: black;
 }
-
 /* CSS */
 .stocksButton {
     appearance: button;
@@ -152,17 +151,17 @@ body {
     background-color: white;
     border: 2px solid black;
     width: 50%;
-   
+
 }
 
-#tab, th, td{
+#tab,th,td {
     background-color: white;
     border: 2px solid black;
 }
 
 #doggo {
-    width: 612px; 
-    height: 612px; 
+    width: 612px;
+    height: 612px;
     overflow: hidden;
     display: flex;
 }
@@ -193,16 +192,21 @@ body {
     padding: 15px;
     border-radius: 5px;
     margin-top: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     width: 80%;
     text-align: left;
 }
 
+#breed-info {
+    background-color: white;
+    border: 2pt solid black;
+    width: 40%;
+}
+
 #audio-div {
-    display: flex; 
-    justify-content: center; 
+    display: flex;
+    justify-content: center;
     align-items: center;
-   
+
 }
 
 #content {
@@ -212,5 +216,5 @@ body {
     margin: 10px;
     width: 50%;
     border: 2pt solid black;
-   
+
 }
