@@ -63,6 +63,85 @@ function returnQuoteAPI() {
 
 // STOCK PAGE JAVASCRIPYT
 
+const stockAPI = 'https://api.polygon.io/v2/aggs/ticker';
+const API_KEY = '3YEcIw5BeY46SvgspMXDYAz2QZAsw8gv';
+let stockChart;
+
+async function fetchTopStocks() {
+    const ticker = document.getElementById('ticker').value.toUpperCase();
+    const days = document.getElementById('days').value;
+
+    if (ticker.length !== 4) {
+        alert('Sorry!! Ticker has to be 4 characters long');
+        return;
+    }
+
+    const endDate = new Date().toISOString().split('T')[0];
+    const startDate = new Date();
+    startDate.setDate(startDate.getDate() - days);
+    const formattedStartDate = startDate.toISOString().split('T')[0];
+
+    const url = `${stockAPI}/${ticker}/range/1/day/${formattedStartDate}/${endDate}?adjusted=true&sort=asc&apiKey=${API_KEY}`;
+
+
+    const response = await fetch(url);
+    const data = await response.json();
+    if (data.results && data.results.length > 0) {
+        let dates = [];
+        let closingPrices = [];
+        for (let i = 0; i < data.results.length; i++) {
+            const timestamp = data.results[i].t;
+            const closingPrice = data.results[i].c;
+            const date = new Date(timestamp / 1000).toLocaleDateString();
+            dates.push(date);
+            closingPrices.push(closingPrice);
+        }
+        displayStockChart(dates, closingPrices);
+    } else {
+        alert('No stock data available for the provided ticker.');
+    }
+
+}
+
+function stockLookup() {
+    fetchTopStocks();
+    return false;
+}
+
+
+function displayStockChart(dates, closingPrices) {
+    const ctx = document.getElementById('myChart')
+
+    if (stockChart) {
+        stockChart.destroy();
+    }
+
+    stockChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: dates,
+            datasets: [{
+                label: 'Price of Stock',
+                data: closingPrices,
+                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                x: {
+                    beginAtZero: false
+                },
+                y: {
+                    beginAtZero: false
+                }
+            }
+        }
+    });
+}
+
 
 function fetchStockAPI() {
     return fetch('https://tradestie.com/api/v1/apps/reddit')
